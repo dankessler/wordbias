@@ -4,8 +4,7 @@
 
 - #### Video Presentation (5min) https://www.youtube.com/watch?v=LcwlyU3QT0w
 
-- #### Live DEMO http://130.245.128.219:6999/
-
+- #### Live DEMO ~~http://130.245.128.219:6999/~~ http://3.83.50.237:6999/
 Paper accepted at ACM SIGCHI 2021 Late Breaking Work
 
 ![teaser figure](teaser.png)
