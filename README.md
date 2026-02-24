@@ -54,6 +54,11 @@ WordBias is an interactive visual tool designed to explore biases against inters
 
 - Browse http://localhost:6999
 
+- To run the tests:
+  ```bash
+  .venv/bin/python -m pytest test_app.py -v
+  ```
+
 ## Citation
 
 ```
