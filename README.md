@@ -32,11 +32,32 @@ WordBias is an interactive visual tool designed to explore biases against inters
 
 - Clone this repo
 
-- Install Dependencies like flask, gensim, py_thesaurus, etc.
+- Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if not already installed:
+  ```bash
+  pip install uv
+  ```
 
-- Run python app.py
+- Create a virtual environment and install dependencies:
+  ```bash
+  uv venv
+  uv pip install -r req.txt
+  ```
 
-- Browse localhost:6999
+- Run the application:
+  ```bash
+  .venv/bin/python app.py
+  ```
+  Or on Windows:
+  ```bash
+  .venv\Scripts\python app.py
+  ```
+
+- Browse http://localhost:6999
+
+- To run the tests:
+  ```bash
+  .venv/bin/python -m pytest test_app.py -v
+  ```
 
 ## Citation
 

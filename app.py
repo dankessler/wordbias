@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, send_file
 from flask import render_template
 import gensim.models.keyedvectors as word2vec
-from gensim.similarities.index import AnnoyIndexer
+from gensim.similarities.annoy import AnnoyIndexer
 from flask import jsonify
 from numpy.linalg import norm
 import pandas as pd
@@ -110,7 +110,7 @@ def get_csv():
 def get_all_words():
     if not model:
         setModel()
-    return jsonify(list(model.vocab.keys()))
+    return jsonify(list(model.key_to_index.keys()))
 
 
 @app.route('/fetch_data',methods=['POST'])
@@ -176,8 +176,8 @@ def search(name):
         load_embedding()
     neigh = []
     try:
-        w = Word(name)
-        neigh = w.synonyms()
+        w = Thesaurus(name)
+        neigh = w.get_synonym()
     except:
         print("Not Found in Thesaurus !!!")
     
@@ -282,7 +282,7 @@ def percentile_rank(values, negative=False):
     out = values.copy()
     N = len(values)
     last_ind = -1
-    for i,items in enumerate(values.iteritems()):
+    for i,items in enumerate(values.items()):
         index, val = items[0], items[1]
         if last_ind!=-1 and val==values.get(last_ind): 
             out.at[index] = out.get(last_ind)
